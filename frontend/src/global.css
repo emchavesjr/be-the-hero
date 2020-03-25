@@ -43,6 +43,10 @@ form textarea {
   line-height: 24px;
 }
 
+.centered {
+  text-align: center;
+}
+
 .button {
   width: 100%;
   height: 60px;

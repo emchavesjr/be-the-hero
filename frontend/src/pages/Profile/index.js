@@ -64,30 +64,33 @@ export default function Profile() {
       </header>
 
       <h1>Casos cadastrados</h1>
+      {incidents.length < 1 ? (
+        <h1 className="centered">Você ainda não tem nenhum caso cadastrado.</h1>
+      ) : (
+        <ul>
+          {incidents.map((i) => (
+            <li key={i.id}>
+              <strong>CASO:</strong>
+              <p>{i.title}</p>
 
-      <ul>
-        {incidents.map((i) => (
-          <li key={i.id}>
-            <strong>CASO:</strong>
-            <p>{i.title}</p>
+              <strong>DESCRIÇÃO:</strong>
+              <p>{i.description}</p>
 
-            <strong>DESCRIÇÃO:</strong>
-            <p>{i.description}</p>
+              <strong>VALOR:</strong>
+              <p>
+                {Intl.NumberFormat('pt-BR', {
+                  style: 'currency',
+                  currency: 'BRL',
+                }).format(i.value)}
+              </p>
 
-            <strong>VALOR::</strong>
-            <p>
-              {Intl.NumberFormat('pt-BR', {
-                style: 'currency',
-                currency: 'BRL',
-              }).format(i.value)}
-            </p>
-
-            <button onClick={() => handleDeleteIncindent(i.id)} type="button">
-              <FiTrash2 size={20} color="#a8a8b3" />
-            </button>
-          </li>
-        ))}
-      </ul>
+              <button onClick={() => handleDeleteIncindent(i.id)} type="button">
+                <FiTrash2 size={20} color="#a8a8b3" />
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

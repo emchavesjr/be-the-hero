@@ -58,18 +58,18 @@ export default function NewIncident() {
           <input
             placeholder="Título do caso"
             value={title}
-            onChane={(e) => setTitle(e.target.value)}
+            onChange={(e) => setTitle(e.target.value)}
           />
           <textarea
             placeholder="Descrição"
             value={description}
-            onChane={(e) => setDescription(e.target.value)}
+            onChange={(e) => setDescription(e.target.value)}
           />
 
           <input
             placeholder="Valor em Reais"
             value={value}
-            onChane={(e) => setValue(e.target.value)}
+            onChange={(e) => setValue(e.target.value)}
           />
 
           <button className="button" type="submit">
